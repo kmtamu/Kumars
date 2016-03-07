@@ -1,0 +1,28 @@
+/*
+ * Print value of second last node in a singly linked list
+ */
+package questions;
+
+public class Question2 {
+
+    public static void main(String[] args){
+        MyLinkedList newlist = new MyLinkedList();
+        newlist.add(new Node(35));
+        newlist.add(new Node(352));
+        newlist.add(new Node(1359));
+        newlist.add(new Node(7357));
+        newlist.add(new Node(305));
+        newlist.add(new Node(43759));
+        
+        Node ahead;
+        Node behind;
+        behind = newlist.head;
+        ahead = newlist.head.nextNode;
+        while (ahead.nextNode!=null){
+            ahead = ahead.nextNode;
+            behind=behind.nextNode;
+        }
+        System.out.println(behind.data);
+    }
+    
+}
