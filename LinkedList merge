@@ -1,0 +1,92 @@
+/*
+ Merge two sorted singly linked list into one. Allocate no extra node
+ */
+
+package questions;
+
+/*
+ * @author kumar
+ */
+
+public class Questions {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+    MyLinkedList newlist = new MyLinkedList();
+    newlist.add(new Node(1));
+    newlist.add(new Node(99));
+    newlist.add(new Node(230));
+    newlist.add(new Node(450));
+    MyLinkedList newlist2 = new MyLinkedList();
+    newlist2.add(new Node(3));
+    newlist2.add(new Node(9));
+    newlist2.add(new Node(235));
+    newlist2.add(new Node(455));
+    Node Result = newlist.mergeList(newlist, newlist2);
+    while (Result!=null){
+        System.out.println(Result.data);
+        Result = Result.nextNode;
+    }
+    }
+}
+
+
+
+
+
+
+
+//Class to create a linked list  
+class MyLinkedList{
+    Node head;
+    Node tail;
+     public void add(Node n){
+      if (head==null && tail==null)
+      {
+          head = n;
+          tail = n;
+      }
+      else
+      {
+          tail.nextNode = n;
+          tail = n;
+      }
+     }
+     //merging method
+     public Node mergeList(MyLinkedList list1, MyLinkedList list2){
+         Node ResultHead=null;
+         Node temp;
+         if(list1.head.nextNode==null&&list2.head.nextNode==null){
+             return ResultHead;
+         }
+         else //non-empty lists
+         {
+             if (list1.head.data<=list2.head.data){
+                 ResultHead = list1.head;
+                 while(list1.head.nextNode!=null && list2.head.nextNode!=null){
+                     if (list1.head.nextNode.data <= list2.head.data){
+                         list1.head = list1.head.nextNode;
+                     }
+                     else{
+                         temp = list1.head.nextNode;
+                         list1.head.nextNode = list2.head;
+                         list2.head = temp;
+                         list1.head = list1.head.nextNode;
+                     }
+                 }
+               
+             }
+         }
+         return ResultHead;
+     }
+    }
+
+//Define a node for a singly linked list
+class Node{
+        int data;
+        Node nextNode;
+       public Node(int num){
+            this.data = num;
+            nextNode = null;
+        }
+    }
