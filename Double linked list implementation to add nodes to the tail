@@ -1,0 +1,51 @@
+
+public class DLLImplement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+DLinkedList myDLl=new DLinkedList();
+myDLl.Dadd(new DNode(95));
+myDLl.Dadd(new DNode(19));
+myDLl.Dadd(new DNode(32));
+myDLl.Dadd(new DNode(4896));
+myDLl.Dadd(new DNode(950));
+myDLl.Dadd(new DNode(9));
+myDLl.Dadd(new DNode(5));
+System.out.println("Done");
+	}
+
+}
+
+
+//Define a node in a doubly linked list
+
+class DNode{
+	int data;
+	DNode previousNode;
+	DNode nextNode;
+	
+	//Define construct to make a new node with int data type
+	public DNode(int n){
+		this.data = n;
+	}
+}
+
+
+//Define link list class and methods associated with it
+
+class DLinkedList{
+	DNode head;
+	DNode tail;
+	
+	 void Dadd(DNode n){
+		if (head==null && tail==null){
+			head = n;
+			tail = n;
+		}
+		else{
+			n.previousNode=tail;
+			tail.nextNode=n;
+			tail = n;
+		}
+	}
+}
