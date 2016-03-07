@@ -1,0 +1,47 @@
+/*
+ * Insert a value in a sorted linked list
+ */
+package questions;
+
+/**
+ *
+ * @author kumar
+ */
+public class Question3 {
+    public static void main (String[] args){
+        MyLinkedList newlist = new MyLinkedList();
+        newlist.add(new Node(3));
+        newlist.add(new Node(5));
+        newlist.add(new Node(9));
+        newlist.add(new Node(11));
+        newlist.add(new Node(55));
+        newlist.add(new Node(76));
+        
+        LLinsert(newlist, 12);
+        Node temp;
+        temp = newlist.head;
+        do{
+            System.out.println(temp.data);
+            temp = temp.nextNode;
+        }while(temp!=null);
+    }
+
+static void LLinsert(MyLinkedList newlist, int i) {
+        Node newNode= new Node(i);
+        Node front;
+        Node back;
+        front = newlist.head.nextNode;
+        back = newlist.head;
+        while(front.nextNode!=null){
+            if (newNode.data>=back.data && newNode.data<=front.data){
+                newNode.nextNode = front;
+                back.nextNode = newNode;
+                break;
+            }
+            else{
+                front = front.nextNode;
+                back = back.nextNode;
+            }
+        }
+    }
+}
