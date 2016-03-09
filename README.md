@@ -1,1 +1,1 @@
-my attempt at doing few java programs
+Few java problems and their programs for practice!
