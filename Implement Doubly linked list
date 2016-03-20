@@ -1,0 +1,36 @@
+/*
+ * Implement a doubly linked list.
+ */
+package questions;
+
+/**
+ *
+ * @author kumar
+ */
+//Define a node
+
+class DLLNodes {
+ DLLNodes previousNode;
+ DLLNodes nextNode;
+ int data;
+ public DLLNodes(int n){
+     this.data = n;
+ }
+}
+
+//Define a doubly linked list and add method to add new nodes
+public class DoublyLL{
+    DLLNodes head;
+    DLLNodes tail;
+    void add(DLLNodes newNode){
+    if (head == null & tail == null){
+        head = newNode;
+        tail = newNode;
+    }
+    else{
+        tail.nextNode = newNode;
+        newNode.previousNode = tail;
+        tail = newNode;
+    }
+   }
+}
