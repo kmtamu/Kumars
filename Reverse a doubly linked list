@@ -1,0 +1,35 @@
+/*
+ * Reversing a doubly Linked List
+ */
+package questions;
+
+/**
+ *
+ * @author kumar
+ */
+public class Question5 {
+    public static void main(String[] args){
+        DoublyLL mydll = new DoublyLL();
+        mydll.add(new DLLNodes(5));
+        mydll.add(new DLLNodes(75));
+        mydll.add(new DLLNodes(20));
+        mydll.add(new DLLNodes(67));
+        mydll.add(new DLLNodes(89));
+        mydll.add(new DLLNodes(90));
+        reversedll(mydll);
+    }
+   static void reversedll(DoublyLL dll){
+     DLLNodes temp;
+     temp = dll.tail;
+     dll.tail = dll.head;
+     dll.head = temp;
+     while(temp!=null){
+         DLLNodes temp2;
+         temp2 = temp.nextNode;
+         temp.nextNode = temp.previousNode;
+         temp.previousNode = temp2;
+         temp = temp.nextNode; //Gie this statement a thought!!!
+                                //It is moving to nextNode because I started temp with tail
+     }
+    }
+}
