@@ -1,0 +1,49 @@
+/*
+ * Reverse a linked list
+ */
+package questions;
+
+/**
+ *
+ * @author kumar
+ */
+public class Question4 {
+    public static void main(String[] args){
+        MyLinkedList myll = new MyLinkedList();
+        myll.add(new Node(39));
+        myll.add(new Node(77));
+        myll.add(new Node(329));
+        myll.add(new Node(510));
+        myll.add(new Node(7777));
+        myll.add(new Node(12345));
+        ReverseLL(myll);
+        
+    }
+    static void ReverseLL(MyLinkedList myll){
+        Node forward;
+        Node mid;
+        Node back;
+        back = myll.head;
+        mid = back.nextNode;
+        forward = mid.nextNode;
+        back.nextNode=null;
+        while (forward!=null){
+            mid.nextNode = back;
+            back = mid;
+            mid = forward;
+            forward = forward.nextNode;
+        }
+        mid.nextNode=back;
+        Node temp;
+        temp = myll.tail;
+        myll.tail = myll.head;
+        myll.head = temp;
+    temp = myll.head;
+    while(temp!=null){
+        System.out.println(temp.data);
+        temp = temp.nextNode;
+    }
+    }
+    
+}
+
