@@ -1,0 +1,33 @@
+/*
+Finding loop and position of loop in a singly linked list
+ */
+package questions;
+
+/**
+ * @author kumar
+ */
+public class Quesion6 {
+   public static void main(String[] args){
+       Node n1 = new Node(5);
+       Node n2 = new Node(7);
+       Node n3 = new Node(11);
+       Node n4 = new Node(15);
+       Node n5 = new Node(72);
+       Node n6 = new Node(101);
+       Node head = n1;
+       Node tail = n6;
+       n1.nextNode = n2;
+       n2.nextNode = n3;
+       n3.nextNode = n4;
+       n4.nextNode = n5;
+       n5.nextNode = n6;
+       n6.nextNode = n3; //Loop in the node is here! nextnode of n6 points to n3
+       CheckLoop(head);
+       
+   } 
+   //method to check whether there is a loop or not. Tortoise and Hare algorithm (Floyd's algorithm)
+       static void CheckLoop(Node Head){
+           
+       }
+   //method to find position where loop starts
+}
