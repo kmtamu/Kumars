@@ -3,7 +3,7 @@ public class DuplicateCharacter {
 		String read="cat";
 		int size = read.length();
 		if(size>256){
-			System.out.println("Since the string has more than 256 characters, it will have duplication");
+		System.out.println("Since the string has more than 256 characters, it will have duplication");
 		}
 		else{
 		int list[] = new int[256];
