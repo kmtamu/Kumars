@@ -1,0 +1,45 @@
+//Define an employee class
+public class Employee {
+    public int ID;
+    public String Name;
+    public double Salary;
+    
+    public Employee(int a, String x, double p){
+        this.ID=a;
+        this.Name =x;
+        this.Salary =p;
+    }
+}
+
+
+
+//main method and Insertion sorting method.
+
+public class SortingEmployeeObject {
+	public static void main(String[] args) {
+        // TODO code application logic here
+        
+        Employee[] myList = {new Employee(23,"Ron",8990.23),
+                                new Employee(5,"Jiya",5500),
+                                new Employee(1,"Margarita",312.99),
+                                new Employee(94,"Kumar",91124),
+                                new Employee(17,"Abhi",7339)};
+        SortingEmployeeObject myobj = new SortingEmployeeObject();
+        myobj.InsertionSort(myList);
+        for(int i=0;i<myList.length;i++){
+            System.out.println(myList[i].ID+" "+myList[i].Name+" "+myList[i].Salary);
+        }
+    }
+    
+    void InsertionSort(Employee list[]){
+      for (int i=0; i<list.length;i++){
+          Employee current = list[i];
+          int j=i-1;
+          while (j>=0 && (current.ID <= list[j].ID)){
+        	  list[j+1]=list[j];
+        	  j--;
+          }
+          list[j+1]=current;
+      }  
+    }
+}
