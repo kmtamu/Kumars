@@ -1,0 +1,32 @@
+import java.util.Arrays;
+
+
+public class IsAnagram {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String string1 = "smart";
+		String string2 ="mart";
+		string1=string1.toUpperCase();
+		string2 = string2.toUpperCase();
+		int[] array1 = new int[256];
+		int[] array2 = new int[256];
+		int size1 = string1.length();
+		int size2 = string2.length();
+		if (size1==size2){
+			for (int i=0;i<size1;i++){
+				int position1= (int)(string1.charAt(i));
+				int position2 = (int) (string2.charAt(i));
+				array1[position1]=array1[position1]+1;
+				array2[position2]=array2[position2]+1;
+			}
+		if(Arrays.equals(array1, array2)){
+			System.out.println("The string are anagram");
+		}
+		else System.out.println("Strings are not anagram");
+		}
+		else {
+			System.out.println("Strings are not anagram");
+		}
+	}
+}
