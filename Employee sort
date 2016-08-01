@@ -52,7 +52,7 @@ public class SortingEmployeeObject {
       for (int i=1; i<list.length;i++){
           Employee current = list[i];
           for (int j=i;j>0;j--){
-              while (list[j] >= current){
+              while (list[j].ID >= current.ID){
                   list[j]=list[j-1]; 
               }
           }
