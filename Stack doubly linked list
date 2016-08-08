@@ -1,0 +1,47 @@
+
+public class ExecutionControl {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		DLL MyStack = new DLL();
+		MyStack.PushStack(new DoubleNode(99));
+		MyStack.PushStack(new DoubleNode(199));
+		MyStack.PushStack(new DoubleNode(299));
+		MyStack.PushStack(new DoubleNode(399));
+		MyStack.PushStack(new DoubleNode(499));
+		MyStack.PushStack(new DoubleNode(599));
+	}
+
+}
+
+
+
+public class DLL {
+private DoubleNode head;
+private DoubleNode tail;
+private int length;
+
+public void PushStack(DoubleNode x){
+	if (head == null & tail == null){
+		head = x;
+		tail =x;
+		}
+	else{
+		tail.next=x;
+		x.prev=tail;
+		tail=tail.next;
+	}
+}
+}
+
+
+public class DoubleNode {
+int data;
+DoubleNode prev;
+DoubleNode next;
+
+DoubleNode(int n){
+	this.data =n;
+}
+}
+
