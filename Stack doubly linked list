@@ -36,11 +36,24 @@ public void PeekStack(){
 }
 
 public int PopStack(){
+	if(this.tail==this.head && this.length==1){
+		int temp=tail.data;
+		this.length=0;
+		this.head=null;
+		this.tail=null;
+		return temp;
+	}
+	else if(this.tail==null && this.head==null){
+		System.out.println("Empty stack");
+		return 0;
+	}
+	else{
 	int temp = this.tail.data;
 	this.tail.prev.next=null;
 	this.tail=this.tail.prev;
 	this.length--;
 	return temp;
+	}
 }
 }
 
