@@ -1,3 +1,52 @@
+//Node definition
+public class DoubleNode {
+int data;
+DoubleNode prev;
+DoubleNode next;
+
+DoubleNode(int n){
+	this.data =n;
+}
+}
+
+
+//Define a stack and Push, Pop, and Peek methods
+
+public class DLL {
+private DoubleNode head;
+private DoubleNode tail;
+int length;
+
+public void PushStack(DoubleNode x){
+	if (head == null & tail == null){
+		head = x;
+		tail =x;
+		this.length=1;
+		}
+	else{
+		tail.next=x;
+		x.prev=tail;
+		tail=tail.next;
+		this.length++;
+	}
+}
+
+public void PeekStack(){
+	System.out.println("Top of the stack is: "+this.tail.data);
+}
+
+public int PopStack(){
+	int temp = this.tail.data;
+	this.tail.prev.next=null;
+	this.tail=this.tail.prev;
+	this.length--;
+	return temp;
+}
+}
+
+
+//Execute stack and demonstrate the methods
+
 
 public class ExecutionControl {
 
@@ -10,38 +59,19 @@ public class ExecutionControl {
 		MyStack.PushStack(new DoubleNode(399));
 		MyStack.PushStack(new DoubleNode(499));
 		MyStack.PushStack(new DoubleNode(599));
+		MyStack.PushStack(new DoubleNode(900));
+		MyStack.PeekStack();
+		System.out.println("Stack length= "+MyStack.length);
+		int val=MyStack.PopStack();
+		System.out.println("Pop value: "+val);
+		val=MyStack.PopStack();
+		System.out.println("Pop value: "+val);
+		val=MyStack.PopStack();
+		System.out.println("Pop value: "+val);
+		val=MyStack.PopStack();
+		System.out.println("Pop value: "+val);
+		System.out.println("Stack length= "+MyStack.length);
+		MyStack.PeekStack();
 	}
 
 }
-
-
-
-public class DLL {
-private DoubleNode head;
-private DoubleNode tail;
-private int length;
-
-public void PushStack(DoubleNode x){
-	if (head == null & tail == null){
-		head = x;
-		tail =x;
-		}
-	else{
-		tail.next=x;
-		x.prev=tail;
-		tail=tail.next;
-	}
-}
-}
-
-
-public class DoubleNode {
-int data;
-DoubleNode prev;
-DoubleNode next;
-
-DoubleNode(int n){
-	this.data =n;
-}
-}
-
