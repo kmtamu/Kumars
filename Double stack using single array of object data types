@@ -1,0 +1,80 @@
+//Define double stack, push, pop, and peek methods
+
+public class DoubleStack {
+Object[] myArray = new Object[100];
+int ptr1 = -2;
+int ptr2 = -1;
+
+public void PushStack1 (Object o){
+	if (ptr1 <100){
+	myArray[ptr1+2]=o;
+	ptr1=ptr1+2;}
+	else{
+		System.out.println("Stack is full");
+	}
+}
+public void PushStack2 (Object o){
+	if (ptr2 <99){
+	myArray[ptr2+2]=o;
+	ptr2=ptr2+2;}
+	else{
+		System.out.println("Stack is full");
+	}
+}
+
+public void PeekStack1(){
+	System.out.println("The top object is: "+ myArray[ptr1]);
+}
+public void PeekStack2(){
+	System.out.println("The top object is: "+ myArray[ptr2]);
+}
+
+public Object PopStack1(){
+if(ptr1>-2){
+	Object temp = myArray[ptr1];
+	ptr1=ptr1-2;
+	return temp;
+}
+else{
+	System.out.println("Empty stack. Returning null");
+	return null;
+}
+}
+
+public Object PopStack2(){
+if(ptr2>-1){
+	Object temp = myArray[ptr2];
+	ptr2=ptr2-2;
+	return temp;
+}
+else{
+	System.out.println("Empty stack. Returning null");
+	return null;
+}
+}
+}
+
+
+//Demonstrate the double stack and all methods
+
+public class ExecutionClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		DoubleStack MyStack = new DoubleStack();
+		MyStack.PushStack1("Hello");
+		MyStack.PushStack2(new Integer (99));
+		MyStack.PushStack1(new Double(79.99));
+		MyStack.PushStack2("New line");
+		MyStack.PeekStack1();
+		MyStack.PeekStack2();
+		System.out.println(MyStack.PopStack1());
+		System.out.println(MyStack.PopStack2());
+		System.out.println(MyStack.PopStack1());
+		System.out.println(MyStack.PopStack2());
+		System.out.println(MyStack.PopStack1());
+		System.out.println(MyStack.PopStack2());
+		System.out.println(MyStack.PopStack1());
+	}
+
+}
