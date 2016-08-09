@@ -1,0 +1,72 @@
+//LL definition and Enqueue, peek, and Dequeue method
+public class LLDefinition {
+private LLNode head;
+private LLNode tail;
+int length;
+
+void Enqueue(LLNode node){
+	if (this.head == null && this.tail==null){
+		this.head = node;
+		this.tail=node;
+		this.length=1;
+		}
+	else{
+		this.tail.next=node;
+		this.tail = this.tail.next;
+		this.length++;
+	}
+}
+
+
+void peek(){
+System.out.println("The value in front of the queue is: "+this.head.data);	
+}
+
+public Object Dequeue(){
+	if (this.head!=this.tail){
+	Object temp=this.head.data;
+	this.head=this.head.next;
+	length--;
+	return temp;
+	}//end of checking equality of head and tail
+	else{
+		if (this.length == 0){
+			System.out.println("Empty queue");
+			return null;
+		}
+		else{
+			this.length=0;
+			Object temp=this.head.data;
+			this.head=null;
+			this.tail=null;
+			return temp;
+		}
+	}
+}
+}
+class LLNode{
+	Object data;
+	LLNode next;
+	LLNode(Object data){
+		this.data=data;
+	}
+}
+
+
+//Executer class and method to demonstrate the code
+
+public class ExecutionClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+LLDefinition myQ = new LLDefinition();
+myQ.Enqueue(new LLNode("Hello"));
+myQ.Enqueue(new LLNode(new Integer(756)));
+myQ.Enqueue(new LLNode(new Double(898.009)));
+myQ.Enqueue(new LLNode("Ram"));
+myQ.Enqueue(new LLNode("Wah"));
+Object value= myQ.Dequeue();
+System.out.println("Dequeued values is: "+value);
+myQ.peek();
+}
+}
