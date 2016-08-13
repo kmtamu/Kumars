@@ -1,0 +1,17 @@
+import java.util.StringTokenizer;
+public class evaluate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+String expression= "+ 3 + * 2 8 9";
+StringTokenizer myTokens = new StringTokenizer(expression);
+while (myTokens.hasMoreTokens()){
+	//check whether operator or operand
+}
+
+	}
+
+//method to check whether the string is an operand or an operator
+}
+
+
