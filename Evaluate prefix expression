@@ -4,14 +4,25 @@ public class evaluate {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 String expression= "+ 3 + * 2 8 9";
+DLL EvaluationStack = new DLL();
 StringTokenizer myTokens = new StringTokenizer(expression);
 while (myTokens.hasMoreTokens()){
 	//check whether operator or operand
+	if(CheckOperator(myTokens.nextToken().charAt(0))){
+		double operand1 = EvaluationStack.PopStack();
+	}
 }
 
 	}
 
 //method to check whether the string is an operand or an operator
+static boolean CheckOperator(char a){
+	int AsciiEq = (int) a;
+	if (AsciiEq == 37 || AsciiEq == 42 || AsciiEq == 43 || AsciiEq == 45 || AsciiEq ==47){
+		return true;
+	}
+	else return false;
+}
 }
 
 
