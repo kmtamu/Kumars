@@ -1,0 +1,118 @@
+//Define node of a tree
+package bstTreeImplementation;
+
+public class TreeNode {
+TreeNode LeftChild;
+TreeNode RightChild;
+int data;
+
+TreeNode(int x){
+	this.data=x;
+}
+}
+
+
+//Define all the methods in a tree class. All methods are iterative.
+package bstTreeImplementation;
+
+public class BST {
+TreeNode root;
+
+//method to insert nodes in the tree
+public void InsertNode(int x){
+	TreeNode newNode = new TreeNode(x);
+	TreeNode CurrentNode;
+	TreeNode Parent;
+	CurrentNode=root;
+	if(root==null){
+		root=newNode;
+	}
+	else{
+		while(true){
+		if(x<CurrentNode.data){
+			Parent = CurrentNode;
+			CurrentNode = CurrentNode.LeftChild;
+			if(CurrentNode==null){
+				Parent.LeftChild=newNode;
+				return;
+			}
+		}
+		else{
+			Parent=CurrentNode;
+			CurrentNode=CurrentNode.RightChild;
+			if(CurrentNode==null){
+				
+				Parent.RightChild=newNode;
+				return;
+			}
+		}
+		}
+	}
+}
+
+
+//method to find whether a node exists in the tree
+public void find(int data){
+	if (root==null){
+		System.out.println("It is an empty tree");
+	}
+	else if(root.data==data){
+		System.out.println("The root has the data. left child has data");
+	}
+	else{
+		TreeNode Current=root;
+		TreeNode Parent=Current;
+		while(true){
+			if(data<Current.data){
+				Parent = Current;
+				Current=Current.LeftChild;
+				if(Current!=null && data==Current.data){
+					System.out.println("Data found. The parent is"+Parent.data);
+					return;
+				}
+				else if(Current==null){
+					System.out.println("Data unavailable");
+					return;
+				}
+				
+			}
+			else{
+				Parent = Current;
+				Current=Current.RightChild;
+				if(Current!=null && data==Current.data){
+					System.out.println("Data found. The parent is"+Parent.data);
+					return;
+				}
+				else if(Current==null){
+					System.out.println("Data unavailable");
+					return;
+				}
+			
+			}
+		}
+	}
+}
+}
+
+
+
+//Execution class to demonstrate all the methods inside the tree class
+package bstTreeImplementation;
+
+public class ExecutionClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		BST MyTree=new BST();
+		MyTree.InsertNode(99);
+		MyTree.InsertNode(12);
+		MyTree.InsertNode(45);
+		MyTree.InsertNode(-89);
+		MyTree.InsertNode(-1);
+		MyTree.InsertNode(0);
+		MyTree.InsertNode(502);
+		MyTree.InsertNode(700);
+		MyTree.find(1700);
+	}
+
+}
