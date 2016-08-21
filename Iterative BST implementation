@@ -92,6 +92,21 @@ public void find(int data){
 		}
 	}
 }
+
+//Method to delete nodes in the tree.
+//Case 1: if the node to be deleted is a leaf child (no dependent children)
+public void Remove(int x){
+	TreeNode FocusNode = new TreeNode(x);
+	TreeNode Current=root;
+	TreeNode Parent=Current;
+	TreeNode PickNextChild=Current;
+	while(true){
+	if(x<Current.data){
+		
+	}
+	}
+}
+
 }
 
 
