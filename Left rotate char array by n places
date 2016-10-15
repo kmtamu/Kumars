@@ -1,0 +1,35 @@
+package LearnersPackage;
+
+/**
+ * Created by kumar on 14/10/16.
+ */
+public class RotateArrayLeft {
+    public static void main(String[] args) {
+        int N=2;
+        char Input[] = {'A', 'B', 'C', 'D', 'E'};
+        System.out.println(" ");
+        for (int i=0;i<Input.length;i++){
+            System.out.print(Input[i]);
+        }
+        System.out.println("");
+        Input = Rotate(Input,N);
+        for (int i=0;i<Input.length;i++){
+            System.out.print(Input[i]);
+        }
+    }
+    static char[] Rotate(char[] Input, int places){
+    if(places<Input.length){
+        for(int round=0;round<places;round++){
+            char temp = Input[0];
+            for(int i=1;i<Input.length;i++){
+                Input[i-1]=Input[i];
+            }
+            Input[Input.length-1]=temp;
+        }
+        return Input;
+    }
+    else{
+        return null;
+    }
+    }
+}
