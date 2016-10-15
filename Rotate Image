@@ -1,9 +1,39 @@
+package LearnersPackage;
+
 /**
- * Created by kumar on 10/13/16.
+ * Created by kumar on 14/10/16.
  */
 public class RotateImage {
     public static void main(String args[]){
         char[][] Image = {{'A','B','C','D'},{'E','F','G','H'},{'I','J','K','L'},{'M','N','O','P'}};
+        RotateImage thisObject = new RotateImage();
+        thisObject.displayMatrix(Image);
+        int last = Image.length-1;
+        int right=last;
+        for(int layer=0;layer<Image.length/2;layer++) {
+            for (int i = layer; i < right; i++) {
+                int[] sub1 = new int[]{layer, i};
+                int[] sub2 = new int[]{i, right};
+                Image = thisObject.Swap(Image, sub1, sub2);
+                sub2[0] = right;
+                sub2[1] = right - i+layer;
+                Image = thisObject.Swap(Image, sub1, sub2);
+                sub2[0] = right - i+layer;
+                sub2[1] = layer;
+                Image = thisObject.Swap(Image, sub1, sub2);
+            }
+
+            right=right-1;
+        }
+        System.out.println("");
+        thisObject.displayMatrix(Image);
+    }
+
+
+    
+    //Methods to do regular tasks
+    //1. Method to display image
+    void  displayMatrix(char[][] Image){
         int N = Image.length;
         for(int i =0;i<N;i++) {
             System.out.println("");
@@ -11,26 +41,14 @@ public class RotateImage {
                 System.out.print(" " + Image[i][j]);
             }
         }
-        if (N%2==0){
-            char temp;
-            for (int i=0;i<N;i++){
+    }
 
-                for (int j=0;j<N;j++){
-                    temp = Image[j][3-i];
-                    Image[j][3-i]=Image[i][j];
-                    Image[i][j]=temp;
-                }
-            }
-        }
-            else{
-            System.out.println("This block not yet made");
-        }
-        System.out.println("");
-        for(int i =0;i<N;i++) {
-            System.out.println("");
-            for (int j = 0; j < N; j++) {
-                System.out.print(" " + Image[i][j]);
-            }
-        }
+    //2. Method to swap two elements of an image
+    public char[][] Swap(char[][] Image, int[] Sub1, int[] Sub2){
+        char temp;
+        temp = Image[Sub1[0]][Sub1[1]];
+        Image[Sub1[0]][Sub1[1]] = Image[Sub2[0]][Sub2[1]];
+        Image[Sub2[0]][Sub2[1]]=temp;
+        return Image;
     }
 }
