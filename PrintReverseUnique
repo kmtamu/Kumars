@@ -1,0 +1,23 @@
+package LearnersPackage;
+
+/**
+ * Created by kumar on 15/10/16.
+ */
+public class PrintUniqueChars {
+    public static void main(String[] args){
+        String Input = "abbccccccdddddddeeeaaaaa";
+        String Output="";
+        char[] InChar = Input.toCharArray();
+        for(int i=InChar.length-1;i>0;i--){
+            if(i==InChar.length-1){
+                Output=Output+InChar[i];
+            }
+            else{
+                if(InChar[i]!=InChar[i-1]){
+                    Output=Output+InChar[i-1];
+                }
+            }
+        }
+        System.out.println(Output);
+    }
+}
