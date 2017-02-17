@@ -1,0 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package something;
+
+/**
+ *
+ * @author kmr.manish
+ */
+public class Something {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        System.out.println("Hello");
+        moveHanoi(3,'A','B','C');
+    }
+    static void moveHanoi(int n, char source, char destination, char auxiliary){
+        if (n==1) System.out.println("Move disk 1 from "+source+" to "+destination);
+        else{
+            moveHanoi(n-1, source, auxiliary, destination);
+            System.out.println("Move disk "+ n  +" from "+source+" to "+destination);
+            moveHanoi(n-1, auxiliary, destination, source);
+            
+        }
+    }
+}
